@@ -166,7 +166,6 @@ var AuthController = {
         }
         
         // Mark the session as authenticated to work with default Sails sessionAuth.js policy
-        console.log(user);
         req.session.authenticated = true
         req.session.passport.isAdmin = user.isAdmin;
         
