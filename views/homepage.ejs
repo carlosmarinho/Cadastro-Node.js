@@ -7,8 +7,10 @@
     <li class="clearfix">
         <div class="step">
           <h3>Meus Dados.</h3>
-          <p><a href="/register">Veja os seus dados de cadastro aqui!</a>!
-
+          <br />
+          <p><a href="/user/show/<%=req.session.passport.user%>">Veja os seus dados de cadastro aqui!</a>!
+          <p><a href="/user/edit/<%=req.session.passport.user%>">Edite os seus dados de cadastro aqui!</a>!
+          <p><a href="/logout">Sair</a>
           </p>
         </div>
       </li>
@@ -17,7 +19,8 @@
         <div class="step">
           <h3>Função Administrativa Clientes
           </h3>
-          <p>Veja a lista de todos os nossos clientes
+          <br />
+          <p><a href="/user">Veja a lista de todos os nossos clientes</a>
           </p>
         </div>
       </li>
