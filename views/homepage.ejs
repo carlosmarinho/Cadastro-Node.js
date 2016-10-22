@@ -1,3 +1,4 @@
+   
     <h2>Seja bem vindo ao Cadastro de Cliente.</h2>
     <!-- <h1>Getting started</h1>
     <p>Don't worry, we've got your back.</p> -->
@@ -18,6 +19,7 @@
           </p>
         </div>
       </li>
+    <% if(req.session.authenticated && req.session.passport.isAdmin ) {%>
       <li class="clearfix">
         <div class="step">
           <h3>Função Administrativa Clientes
@@ -26,5 +28,6 @@
           </p>
         </div>
       </li>
+    <% } %>
     </ul>
     
