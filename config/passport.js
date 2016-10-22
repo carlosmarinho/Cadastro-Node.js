@@ -19,11 +19,12 @@ module.exports.passport = {
     strategy: require('passport-local').Strategy
   },
 
+/*
   bearer: {
     strategy: require('passport-http-bearer').Strategy
   },
 
-/*
+
   twitter: {
     name: 'Twitter',
     protocol: 'oauth',
