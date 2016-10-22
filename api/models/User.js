@@ -3,6 +3,7 @@ var User = {
   schema: true,
 
   attributes: {
+  	name			: { type: 'string' },
     username  : { type: 'string', unique: true },
     email     : { type: 'email',  unique: true },
     isAdmin   : { type: 'int', defaultsTo: 0},

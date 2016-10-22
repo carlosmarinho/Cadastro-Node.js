@@ -1,19 +1,19 @@
-<form action="/client/update" method="POST" class="form-signin">
+<form action="/user/update/<%=user.id %>" method="POST" class="form-signin">
       <h2 class="form-signin-heading"> Editar Usuário 
       
       <div class="control-group">
             <div class="control-group">
                   <% if(user.name == undefined) { %>
-                  <input type="text" class="form-control" placeholder="Nome" name="name" value="">
+                  <input type="text" class="form-control" placeholder="Nome" name="User[name]" value="">
                   <% } else { %>
-                  <input type="text" class="form-control" placeholder="Nome" name="name" value="<%=(user.name=='undefined')?'':user.name%>">
+                  <input type="text" class="form-control" placeholder="Nome" name="User[name]" value="<%=(user.name=='undefined')?'':user.name%>">
                   <% } %>
             </div>
             <div class="control-group">
-                  <input type="text" class="form-control" placeholder="Username" name="username" value="<%=user.username%>">
+                  <input type="text" class="form-control" placeholder="Username" name="User[username]" value="<%=user.username%>">
             </div>
             <div class="control-group">
-            <input type="text" class="form-control" placeholder="Email" name="email" value="<%=user.email%>">
+            <input type="text" class="form-control" placeholder="Email" name="User[email]" value="<%=user.email%>">
             </div>
             <!--div class="control-group">
             <input type="password" class="form-control" placeholder="senha" name="password">
@@ -22,6 +22,6 @@
             <input type="password" class="form-control" placeholder="Confirme a Senha" name="confirmation">
             </div-->
       <br/>
-            <input type="submit"  class="btn btn-lg btn-primary btn-block" value="Editar Cliente"/>
+            <input type="submit"  class="btn btn-lg btn-primary btn-block" value="Editar Usuário"/>
             <input type="hidden" name="_csrf" value="<%=_csrf %>"/>
 </form>
