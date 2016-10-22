@@ -3,6 +3,7 @@
   <table class='table'>
       <tr>
           <th>Nome</th>
+          <th>Username</th>
           <th>Email</th>
           <th></th>
           <th></th>
@@ -10,6 +11,7 @@
       </tr>
       <% _.each(users, function(user) { %>
       <tr data-id="<%= user.id %>" data-model="user">
+      <% if(user.name == undefined ) { %>  <td>&nbsp;</td> <% } else { %> <td><%= user.username %></td> <% } %>
           <td><%= user.username %></td>
           <td><%= user.email %></td>
           <td><a href="/user/show/<%= user.id %>" class="btn btn-sm btn-primary">Show</a></td>

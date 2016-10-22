@@ -1,8 +1,11 @@
 <h2 class="form-signin-heading"> Meus Dados </h2>
 
 <div class="control-group">
+			<div class="control-group">
+						Nome: <% if(user.name == undefined ) { %>  &nbsp; <% } else { %> <%= user.name %> <% } %>
+      </div>
       <div class="control-group">
-            Nome: <%= user.username %>
+            Username: <%= user.username %>
       </div>
       <div class="control-group">
             Email: <%= user.email %>

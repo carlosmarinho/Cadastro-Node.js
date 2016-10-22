@@ -3,6 +3,27 @@
     <!-- <h1>Getting started</h1>
     <p>Don't worry, we've got your back.</p> -->
     <ul class="getting-started">
+  <% if( req.session.authenticated ){ %>
+    <li class="clearfix">
+        <div class="step">
+          <h3>Meus Dados.</h3>
+          <p><a href="/register">Veja os seus dados de cadastro aqui!</a>!
+
+          </p>
+        </div>
+      </li>
+    <% if( req.session.passport.isAdmin == '1' ) {%>
+      <li class="clearfix">
+        <div class="step">
+          <h3>Função Administrativa Clientes
+          </h3>
+          <p>Veja a lista de todos os nossos clientes
+          </p>
+        </div>
+      </li>
+    <% } %>
+  <% } else { %>
+    
       <li class="clearfix">
         <div class="step">
           <h3>Cliente Novo.</h3>
@@ -19,15 +40,6 @@
           </p>
         </div>
       </li>
-    <% if(req.session.authenticated && req.session.passport.isAdmin ) {%>
-      <li class="clearfix">
-        <div class="step">
-          <h3>Função Administrativa Clientes
-          </h3>
-          <p>Veja a lista de todos os nossos clientes
-          </p>
-        </div>
-      </li>
-    <% } %>
+  <% } %>
     </ul>
     
