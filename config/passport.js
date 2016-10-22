@@ -23,6 +23,7 @@ module.exports.passport = {
     strategy: require('passport-http-bearer').Strategy
   },
 
+/*
   twitter: {
     name: 'Twitter',
     protocol: 'oauth',
@@ -50,7 +51,7 @@ module.exports.passport = {
     options: {
       clientID: 'your-client-id',
       clientSecret: 'your-client-secret',
-      scope: ['email'] /* email is necessary for login behavior */
+      scope: ['email'] /* email is necessary for login behavior /*
     }
   },
 
@@ -73,5 +74,5 @@ module.exports.passport = {
       serverBaseURL: 'http://localhost:1337',
       serviceURL: 'http://localhost:1337/auth/cas/callback'
     }
-  }
+  }*/
 };
