@@ -1,5 +1,18 @@
 <div class="container">
-  <h3>Usuários
+  <h3>Buscar Usuários</h3>
+  
+  <form action="" method="POST" class="form-signin">
+    <div class="control-group">
+        <div class="control-group">
+              Busca por Nome: <input type="text" class="form-control" placeholder="Nome" name="Busca[name]" value="">
+              <input type="submit"  class="btn btn-lg btn-primary btn-block" value="Buscar"/>
+
+        </div>
+    </div>
+  </form>
+  <br /><br />
+  <h3>Lista de Usuários</h3>
+  <br />
   <table class='table'>
       <tr>
           <th>Nome</th>
@@ -11,7 +24,7 @@
       </tr>
       <% _.each(users, function(user) { %>
       <tr data-id="<%= user.id %>" data-model="user">
-      <% if(user.name == undefined ) { %>  <td>&nbsp;</td> <% } else { %> <td><%= user.username %></td> <% } %>
+      <% if(user.name == undefined ) { %>  <td>&nbsp;</td> <% } else { %> <td><%= user.name %></td> <% } %>
           <td><%= user.username %></td>
           <td><%= user.email %></td>
           <td><a href="/user/show/<%= user.id %>" class="btn btn-sm btn-primary">Show</a></td>
