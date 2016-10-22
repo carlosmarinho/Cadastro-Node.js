@@ -95,6 +95,20 @@ var AuthController = {
     res.view({
       errors: req.flash('error')
     });
+
+    sails.hooks.email.send(
+      "boasVindas",
+      {
+        recipientName: "Joe",
+        senderName: "Carlos"
+      },
+      {
+        to: "carluizfla@hotmail.com",
+        subject: "Seja bem vindo"
+      },
+      function(err) {console.log(err || "It worked!");}
+    )
+
   },
 
   /**
