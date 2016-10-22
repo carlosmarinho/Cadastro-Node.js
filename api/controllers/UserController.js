@@ -7,12 +7,18 @@
 
 module.exports = {
 	index: function (req, res) {
-    User.find(function foundUser (err, users) {
-      if(err) return res.redirect('/user/new');
-      res.view({
-        users: users
-      });
-    });
+		if( req.session.authenticated && req.session.passport.isAdmin == '1' )
+		{
+	    User.find(function foundUser (err, users) {
+	      if(err) return res.redirect('/user/new');
+	      res.view({
+	        users: users
+	      });
+	    });
+		}
+		else{
+			res.redirect( '/');
+		}
   },
 
 	edit: function(req, res){
@@ -43,10 +49,6 @@ module.exports = {
         	user.username	= u.username;
         	user.name			= u.name;
         	user.email		= u.email;
-
-console.log(u)
-console.log('-------------\n-----------')
-console.log(user);
 
         	user.save(function(err){
         		if (err) {
