@@ -57,44 +57,29 @@ module.exports = {
 
 			if(req.method=="POST" && req.param("password",null)!=null)
 	    {
-	      
-
+	    	
 		      Passport.find()
 		      	.populate('user',{where : {id: req.param('id')}})
 		      	.exec(function (err, passport){
 		      		
 		      		if(passport[0] == undefined) {
-		      			
 	  						msg = 'Nenhum usuario encontrado!';
-	  
 		      		}
 		      		else
 		      		{
-			      		passport.password = req.param("password");
-			      		
-			      		Passport.update({id: passport[0].id}, {password: passport.password})
-			      			.exec(function(err, pass) {
-			      				
-			      				msg = "Senha atualizada com sucesso!"
-								    // In case of error, handle accordingly
-								    if(err) {msg = "Senha não foi Atualizada!"} 
-								    // Otherwise send a success message and a 200 status    
-								    //return res.send('success');
-								    
-								});
+				      		passport.password = req.param("password");
+				      		console.log("old hash123: " + oldhash)
+				      		
+				      		Passport.update({id: passport[0].id}, {password: passport.password})
+				      			.exec(function(err, pass) {
+				      				msg = "Senha atualizada com sucesso!"
+									    if(err) {msg = "Senha não foi Atualizada!"} 
+									});
+				      	
 		      		}
-		      		console.log("mensagem: " + msg);
-		      		
 		      	})
-
-	    	});
 	    			res.redirect( '/');
-
-
-	      
-	      	
 			       //   res.redirect( 'user/show/'+user.id);
-			       
 			}
 	      res.view({msg:msg}); 
     }
