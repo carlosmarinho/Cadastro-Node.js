@@ -5,9 +5,12 @@
 <% } %>
 
 <form role="form" action="/auth/local" method="post">
-  <input type="text" name="identifier" placeholder="Username or Email">
-  <input type="password" name="password" placeholder="Password">
-  <button type="submit">Sign in</button>
+  <h2 class="form-signin-heading"> Faça o seu login! </h2>
+      <br />
+  <input type="text" name="identifier" placeholder="Username ou Email"><br />
+  <input type="password" name="password" placeholder="Senha"><br />
+  <br />
+  <button type="submit">Logar</button>
 </form>
 
 <% if (Object.keys(providers).length) {%>
