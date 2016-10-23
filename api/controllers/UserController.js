@@ -9,7 +9,6 @@ module.exports = {
 	index: function (req, res) {
 		if( req.session.authenticated && req.session.passport.isAdmin == '1' )
 		{
-			console.log(req.param('Busca'))
 			if(req.param('Busca') == undefined)
 			{
 				busca = {};
@@ -20,8 +19,6 @@ module.exports = {
 				busca = {name: { like: busca['name']+'%'}};
 			}
 
-			console.log(busca);
-			
 	    User.find(busca).exec(function foundUser (err, users) {
 	      if(err) return res.redirect('/user/new');
 	      res.view({
@@ -73,24 +70,18 @@ module.exports = {
 		      		}
 		      		else
 		      		{
-		      			
-		 
-		      			{
-				      		passport.password = req.param("password");
-				      		console.log("old hash123: " + oldhash)
-				      		
-				      		Passport.update({id: passport[0].id}, {password: passport.password})
-				      			.exec(function(err, pass) {
-				      				
-				      				msg = "Senha atualizada com sucesso!"
-									    // In case of error, handle accordingly
-									    if(err) {msg = "Senha não foi Atualizada!"} 
-									    // Otherwise send a success message and a 200 status    
-									    //return res.send('success');
-									    
-									});
-				      	}
-		
+			      		passport.password = req.param("password");
+			      		
+			      		Passport.update({id: passport[0].id}, {password: passport.password})
+			      			.exec(function(err, pass) {
+			      				
+			      				msg = "Senha atualizada com sucesso!"
+								    // In case of error, handle accordingly
+								    if(err) {msg = "Senha não foi Atualizada!"} 
+								    // Otherwise send a success message and a 200 status    
+								    //return res.send('success');
+								    
+								});
 		      		}
 		      		console.log("mensagem: " + msg);
 		      		
