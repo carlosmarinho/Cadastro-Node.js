@@ -8,10 +8,7 @@ var bcrypt = require('bcryptjs');
  */
 function hashPassword (passport, next) {
   if (passport.password) {
-    console.log("passport: " + passport.password)
     bcrypt.hash(passport.password, 10, function (err, hash) {
-      console.log("erro: " + err);
-      console.log("novo hash: " + hash)
       passport.password = hash;
       next(err, passport);
     });
