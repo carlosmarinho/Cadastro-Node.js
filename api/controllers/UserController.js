@@ -60,10 +60,6 @@ module.exports = {
 
 			if(req.method=="POST" && req.param("password",null)!=null)
 	    {
-	    	
-	    	var bcrypt = require('bcryptjs');
-	    	var oldhash;
-	    	bcrypt.hash(req.param("old-password"), 10, function (err, oldhash) {
 	      
 
 		      Passport.find()
@@ -78,7 +74,7 @@ module.exports = {
 		      		else
 		      		{
 		      			
-		      			//if(oldhash == passport[0].password)
+		 
 		      			{
 				      		passport.password = req.param("password");
 				      		console.log("old hash123: " + oldhash)
@@ -94,10 +90,7 @@ module.exports = {
 									    
 									});
 				      	}
-				      	//else
-				      	{
-				      		//msg = 'Senha Antiga não é válida!';
-				      	}
+		
 		      		}
 		      		console.log("mensagem: " + msg);
 		      		
