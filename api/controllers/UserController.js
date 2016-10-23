@@ -55,7 +55,11 @@ module.exports = {
 		{
 			var msg = "";
 
-			if(req.method=="POST" && req.param("password",null)!=null)
+			if(req.param("password") != req.param("confirm-password"))
+			{
+					msg = "As senhas são diferentes. Favor tente novamente!"
+			}
+			else if(req.method=="POST" && req.param("password",null)!=null)
 	    {
 	    	
 		      Passport.find()
