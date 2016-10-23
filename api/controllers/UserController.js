@@ -68,8 +68,7 @@ module.exports = {
 		      		else
 		      		{
 				      		passport.password = req.param("password");
-				      		console.log("old hash123: " + oldhash)
-				      		
+			      		
 				      		Passport.update({id: passport[0].id}, {password: passport.password})
 				      			.exec(function(err, pass) {
 				      				msg = "Senha atualizada com sucesso!"
