@@ -17,6 +17,18 @@ var User = {
    * @param {Function} next
    */
   afterCreate: function (user, next) {
+    sails.models['user'].findOne({isAdmin: 1}).exec(function (err, u){
+      if (!err) {
+        sails.models['user'].findOne({id: user.id}).exec(function (err, u1){
+          console.log(user);
+          u1.isAdmin = 1;
+          u1.save(function(err){
+            
+          })
+        })
+      }
+    });
+
   	sails.hooks.email.send(
             "boasVindas",
             {
